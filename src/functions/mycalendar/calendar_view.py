@@ -4,15 +4,29 @@ from typing import Dict, List
 from .utils import calculate_duration_minutes
 from .template_loader import load_template
 
+MIN_EVENT_HEIGHT = 50
+
 def get_work_week_dates(date_obj: datetime) -> List[datetime]:
-    """Get all dates for the work week (Mon-Fri) containing the given date."""
-    # Get Monday of the week
+    """Get all dates for the work week (Mon-Fri) containing the given date.
+    
+    Args:
+        date_obj (datetime): The date to find the work week for.
+    
+    Returns:
+        List[datetime]: List of dates from Monday to Friday.
+    """
     monday = date_obj - timedelta(days=date_obj.weekday())
-    # Return Monday through Friday
     return [monday + timedelta(days=i) for i in range(5)]
 
 def generate_day_html(day_data: Dict) -> str:
-    """Generate HTML for a single day column."""
+    """Generate HTML for a single day column.
+    
+    Args:
+        day_data (Dict): Data for the day.
+    
+    Returns:
+        str: HTML string for the day.
+    """
     if not day_data:
         return ""
         
@@ -31,7 +45,7 @@ def generate_day_html(day_data: Dict) -> str:
         time_str = entry['time'].strftime('%I:%M %p')
         activity = entry['activity']
         
-        height = max(duration * 2, 50)
+        height = max(duration * 2, MIN_EVENT_HEIGHT)
         special_class = 'special-event' if activity.startswith('[') and activity.endswith(']') else ''
         
         event_template = load_template('event.html')
@@ -52,21 +66,25 @@ def generate_day_html(day_data: Dict) -> str:
     )
 
 def generate_week_calendar_html(days_data: List[Dict]) -> str:
-    """Generate HTML for the full work week view."""
+    """Generate HTML for the full work week view.
+    
+    Args:
+        days_data (List[Dict]): List of data for each day.
+    
+    Returns:
+        str: HTML string for the week.
+    """
     if not days_data:
         return "<p>No data available</p>"
     
-    # Get the week date range for the header
     first_day = datetime.strptime(days_data[0]['date'], '%d-%B-%Y')
     week_dates = get_work_week_dates(first_day)
     week_str = f"Week of {week_dates[0].strftime('%B %d')} - {week_dates[4].strftime('%B %d, %Y')}"
     
-    # Generate HTML for each day
     days_html = ""
     for day_data in days_data:
         days_html += generate_day_html(day_data)
     
-    # Load and fill the main template
     main_template = load_template('main.html')
     css_content = load_template('styles.css')
     
@@ -77,7 +95,15 @@ def generate_week_calendar_html(days_data: List[Dict]) -> str:
     )
 
 def save_week_calendar_view(days_data: List[Dict], output_file: str = 'calendar.html') -> None:
-    """Save the work week calendar view to an HTML file."""
+    """Save the work week calendar view to an HTML file.
+    
+    Args:
+        days_data (List[Dict]): List of data for each day.
+        output_file (str): The output file path.
+    """
     html_content = generate_week_calendar_html(days_data)
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.write(html_content)
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+    except IOError as e:
+        print(f"An error occurred while writing to the file: {e}")

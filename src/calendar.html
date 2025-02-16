@@ -21,7 +21,7 @@ body {
 
 /* Container for the calendar */
 .calendar-container {
-    max-width: 1200px; /* Reduced max-width for a more compact layout */
+    /* max-width: 1200px; */
     margin: 0 auto;
     background-color: white;
     border-radius: 8px; /* Slightly less rounded for a sharper look */
@@ -102,10 +102,11 @@ body {
 
 /* Time and duration styling */
 .time {
-    min-width: 100px; /* Adjusted width for compactness */
+        min-width: 100px;
     display: flex;
     flex-direction: column;
-    color: #2c3e50; /* Consistent text color */
+    color: #2c3e50;
+    justify-content: center;
 }
 
 .time-value {
@@ -123,6 +124,7 @@ body {
     flex-grow: 1;
     display: flex;
     align-items: center;
+    font-size: clamp(0.4rem, 1vw, 1.2rem); /* Responsive font size */
 }
 
 /* Special event styling */
@@ -451,7 +453,7 @@ body {
         <span class="time-value">01:57 PM</span>
         <span class="duration">(9 min)</span>
     </div>
-    <div class="activity">Update project status</div>
+    <div class="activity">Update project status Update project status Update project status</div>
 </div><!-- # functions/mycalendar/templates/event.html -->
 <div class="event " style="height: 234px;">
     <div class="time">
