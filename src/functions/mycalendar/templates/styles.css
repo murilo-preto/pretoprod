@@ -1,91 +1,136 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 2rem;
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* Soft background color */
+    color: #34495e; /* Main text color */
 }
+
+/* Container for the calendar */
 .calendar-container {
-    max-width: 1400px;
+    max-width: 1200px; /* Reduced max-width for a more compact layout */
     margin: 0 auto;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px; /* Slightly less rounded for a sharper look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow */
     padding: 20px;
 }
+
+/* Header for the week */
 .week-header {
     text-align: center;
     padding: 1rem;
     margin-bottom: 1rem;
 }
+
 .week-header h2 {
     margin: 0;
-    color: #2c3e50;
+    font-size: 1.5rem; /* Larger font for visibility */
+    color: #2c3e50; /* Stronger color for emphasis */
 }
+
+/* Flexbox for the days */
 .days-container {
     display: flex;
     gap: 10px;
-    overflow-x: auto;
+    overflow-x: auto; /* Allows horizontal scrolling */
 }
+
 .day-column {
     flex: 1;
-    min-width: 250px;
+    min-width: 200px; /* Reduced min-width for a tighter layout */
     border-radius: 5px;
-    background-color: #f8f9fa;
+    background-color: #ffffff; /* Clean white for day columns */
+    border: 1px solid #e0e0e0; /* Light border for separation */
 }
+
+/* Header for each day */
 .date-header {
     text-align: center;
     padding: 1rem;
-    background-color: #e9ecef;
+    background-color: #f0f0f0; /* Light gray for a subtle distinction */
     border-radius: 5px 5px 0 0;
 }
+
 .date-header h3 {
     margin: 0;
-    color: #2c3e50;
+    font-size: 1.2rem; /* Larger font size for better readability */
 }
+
 .date-header p {
     margin: 5px 0 0;
-    color: #6c757d;
+    color: #999; /* Lighter color for secondary text */
 }
+
+/* Timeline for events */
 .timeline {
     position: relative;
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
+
+/* Individual event styling */
 .event {
     display: flex;
     padding: 0.5rem;
-    border-left: 3px solid #3498db;
+    border-left: 4px solid #3498db; /* Emphasized left border */
     background-color: white;
     transition: transform 0.2s;
-    min-height: 50px;
-    box-sizing: border-box;
+    min-height: 50px; /* Consistent height for events */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
+
 .event:hover {
-    transform: translateX(5px);
-    background-color: #f8f9fa;
+    transform: translateX(5px); /* Subtle hover effect for interaction */
+    background-color: #f8f9fa; /* Slightly darker background on hover */
 }
+
+/* Time and duration styling */
 .time {
-    min-width: 120px;
+    min-width: 100px; /* Adjusted width for compactness */
     display: flex;
     flex-direction: column;
-    color: #2c3e50;
+    color: #2c3e50; /* Consistent text color */
 }
+
 .time-value {
     font-weight: bold;
 }
+
 .duration {
-    font-size: 0.8em;
-    color: #666;
-    margin-top: 4px;
+    font-size: 0.8em; /* Smaller font for duration */
+    color: #666; /* Soft gray for less emphasis */
+    margin-top: 2px; /* Adjusted margin for spacing */
 }
+
+/* Activity title styling */
 .activity {
     flex-grow: 1;
-    color: #34495e;
     display: flex;
     align-items: center;
 }
+
+/* Special event styling */
 .special-event {
-    border-left-color: #e74c3c;
-    background-color: #fff5f5;
+    border-left-color: #e74c3c; /* Red border for special events */
+    background-color: #fff5f5; /* Soft red background */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .days-container {
+        flex-direction: column; /* Stack days vertically on smaller screens */
+    }
+
+    .day-column {
+        min-width: auto; /* Remove min-width for full width */
+    }
 }
