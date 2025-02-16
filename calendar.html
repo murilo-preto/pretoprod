@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Week Calendar View</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #f5f5f5;
+}
+.calendar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+.week-header {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.week-header h2 {
+    margin: 0;
+    color: #2c3e50;
+}
+.days-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+.day-column {
+    flex: 1;
+    min-width: 250px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+.date-header {
+    text-align: center;
+    padding: 1rem;
+    background-color: #e9ecef;
+    border-radius: 5px 5px 0 0;
+}
+.date-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+.date-header p {
+    margin: 5px 0 0;
+    color: #6c757d;
+}
+.timeline {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.event {
+    display: flex;
+    padding: 0.5rem;
+    border-left: 3px solid #3498db;
+    background-color: white;
+    transition: transform 0.2s;
+    min-height: 50px;
+    box-sizing: border-box;
+}
+.event:hover {
+    transform: translateX(5px);
+    background-color: #f8f9fa;
+}
+.time {
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    color: #2c3e50;
+}
+.time-value {
+    font-weight: bold;
+}
+.duration {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 4px;
+}
+.activity {
+    flex-grow: 1;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+}
+.special-event {
+    border-left-color: #e74c3c;
+    background-color: #fff5f5;
+}
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="week-header">
+            <h2>Week of February 10 - February 14, 2025</h2>
+        </div>
+        <div class="days-container">
+            <div class="day-column">
+    <div class="date-header">
+        <h3>February 10</h3>
+        <p>Monday</p>
+    </div>
+    <div class="timeline">
+        <!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:02 AM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">[Workday start]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:12 AM</span>
+        <span class="duration">(6 min)</span>
+    </div>
+    <div class="activity">Review reports</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:18 AM</span>
+        <span class="duration">(6 min)</span>
+    </div>
+    <div class="activity">Team meeting</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:24 AM</span>
+        <span class="duration">(14 min)</span>
+    </div>
+    <div class="activity">Check emails</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:38 AM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Read industry news</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 256px;">
+    <div class="time">
+        <span class="time-value">09:46 AM</span>
+        <span class="duration">(128 min)</span>
+    </div>
+    <div class="activity">Study AI</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 62px;">
+    <div class="time">
+        <span class="time-value">11:54 AM</span>
+        <span class="duration">(31 min)</span>
+    </div>
+    <div class="activity">[Lunch Break]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 120px;">
+    <div class="time">
+        <span class="time-value">12:25 PM</span>
+        <span class="duration">(60 min)</span>
+    </div>
+    <div class="activity">[Resume working]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:25 PM</span>
+        <span class="duration">(7 min)</span>
+    </div>
+    <div class="activity">Code implementation</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:32 PM</span>
+        <span class="duration">(12 min)</span>
+    </div>
+    <div class="activity">Update project status</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:44 PM</span>
+        <span class="duration">(9 min)</span>
+    </div>
+    <div class="activity">Write report</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:53 PM</span>
+        <span class="duration">(9 min)</span>
+    </div>
+    <div class="activity">Review pull requests</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 242px;">
+    <div class="time">
+        <span class="time-value">02:02 PM</span>
+        <span class="duration">(121 min)</span>
+    </div>
+    <div class="activity">Optimize database</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 234px;">
+    <div class="time">
+        <span class="time-value">04:03 PM</span>
+        <span class="duration">(117 min)</span>
+    </div>
+    <div class="activity">[Workday end]</div>
+</div>
+    </div>
+</div><div class="day-column">
+    <div class="date-header">
+        <h3>February 11</h3>
+        <p>Tuesday</p>
+    </div>
+    <div class="timeline">
+        <!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:02 AM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">[Workday start]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:12 AM</span>
+        <span class="duration">(13 min)</span>
+    </div>
+    <div class="activity">Study AI</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:25 AM</span>
+        <span class="duration">(6 min)</span>
+    </div>
+    <div class="activity">Review reports</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:31 AM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Write documentation</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:39 AM</span>
+        <span class="duration">(9 min)</span>
+    </div>
+    <div class="activity">Prepare presentation</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 252px;">
+    <div class="time">
+        <span class="time-value">09:48 AM</span>
+        <span class="duration">(126 min)</span>
+    </div>
+    <div class="activity">Fix bugs</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 62px;">
+    <div class="time">
+        <span class="time-value">11:54 AM</span>
+        <span class="duration">(31 min)</span>
+    </div>
+    <div class="activity">[Lunch Break]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 120px;">
+    <div class="time">
+        <span class="time-value">12:25 PM</span>
+        <span class="duration">(60 min)</span>
+    </div>
+    <div class="activity">[Resume working]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:25 PM</span>
+        <span class="duration">(14 min)</span>
+    </div>
+    <div class="activity">Debug application</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:39 PM</span>
+        <span class="duration">(15 min)</span>
+    </div>
+    <div class="activity">Update project status</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:54 PM</span>
+        <span class="duration">(9 min)</span>
+    </div>
+    <div class="activity">Research new tools</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">02:03 PM</span>
+        <span class="duration">(5 min)</span>
+    </div>
+    <div class="activity">Optimize database</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 230px;">
+    <div class="time">
+        <span class="time-value">02:08 PM</span>
+        <span class="duration">(115 min)</span>
+    </div>
+    <div class="activity">Review pull requests</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 234px;">
+    <div class="time">
+        <span class="time-value">04:03 PM</span>
+        <span class="duration">(117 min)</span>
+    </div>
+    <div class="activity">[Workday end]</div>
+</div>
+    </div>
+</div><div class="day-column">
+    <div class="date-header">
+        <h3>February 12</h3>
+        <p>Wednesday</p>
+    </div>
+    <div class="timeline">
+        <!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:02 AM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">[Workday start]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:12 AM</span>
+        <span class="duration">(13 min)</span>
+    </div>
+    <div class="activity">Read industry news</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:25 AM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Review reports</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:33 AM</span>
+        <span class="duration">(13 min)</span>
+    </div>
+    <div class="activity">Plan project tasks</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:46 AM</span>
+        <span class="duration">(14 min)</span>
+    </div>
+    <div class="activity">Team meeting</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 228px;">
+    <div class="time">
+        <span class="time-value">10:00 AM</span>
+        <span class="duration">(114 min)</span>
+    </div>
+    <div class="activity">Check emails</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 62px;">
+    <div class="time">
+        <span class="time-value">11:54 AM</span>
+        <span class="duration">(31 min)</span>
+    </div>
+    <div class="activity">[Lunch Break]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 120px;">
+    <div class="time">
+        <span class="time-value">12:25 PM</span>
+        <span class="duration">(60 min)</span>
+    </div>
+    <div class="activity">[Resume working]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:25 PM</span>
+        <span class="duration">(13 min)</span>
+    </div>
+    <div class="activity">Research new tools</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:38 PM</span>
+        <span class="duration">(7 min)</span>
+    </div>
+    <div class="activity">Test software</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:45 PM</span>
+        <span class="duration">(12 min)</span>
+    </div>
+    <div class="activity">Review pull requests</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:57 PM</span>
+        <span class="duration">(9 min)</span>
+    </div>
+    <div class="activity">Update project status</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 234px;">
+    <div class="time">
+        <span class="time-value">02:06 PM</span>
+        <span class="duration">(117 min)</span>
+    </div>
+    <div class="activity">Code implementation</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 234px;">
+    <div class="time">
+        <span class="time-value">04:03 PM</span>
+        <span class="duration">(117 min)</span>
+    </div>
+    <div class="activity">[Workday end]</div>
+</div>
+    </div>
+</div><div class="day-column">
+    <div class="date-header">
+        <h3>February 13</h3>
+        <p>Thursday</p>
+    </div>
+    <div class="timeline">
+        <!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:02 AM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">[Workday start]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:12 AM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Review reports</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:20 AM</span>
+        <span class="duration">(11 min)</span>
+    </div>
+    <div class="activity">Prepare presentation</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:31 AM</span>
+        <span class="duration">(12 min)</span>
+    </div>
+    <div class="activity">Write documentation</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:43 AM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Check emails</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 246px;">
+    <div class="time">
+        <span class="time-value">09:51 AM</span>
+        <span class="duration">(123 min)</span>
+    </div>
+    <div class="activity">Plan project tasks</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 62px;">
+    <div class="time">
+        <span class="time-value">11:54 AM</span>
+        <span class="duration">(31 min)</span>
+    </div>
+    <div class="activity">[Lunch Break]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 120px;">
+    <div class="time">
+        <span class="time-value">12:25 PM</span>
+        <span class="duration">(60 min)</span>
+    </div>
+    <div class="activity">[Resume working]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:25 PM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Debug application</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:33 PM</span>
+        <span class="duration">(9 min)</span>
+    </div>
+    <div class="activity">Check client demands</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:42 PM</span>
+        <span class="duration">(13 min)</span>
+    </div>
+    <div class="activity">Optimize database</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:55 PM</span>
+        <span class="duration">(15 min)</span>
+    </div>
+    <div class="activity">Update project status</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 226px;">
+    <div class="time">
+        <span class="time-value">02:10 PM</span>
+        <span class="duration">(113 min)</span>
+    </div>
+    <div class="activity">Test software</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 234px;">
+    <div class="time">
+        <span class="time-value">04:03 PM</span>
+        <span class="duration">(117 min)</span>
+    </div>
+    <div class="activity">[Workday end]</div>
+</div>
+    </div>
+</div><div class="day-column">
+    <div class="date-header">
+        <h3>February 14</h3>
+        <p>Friday</p>
+    </div>
+    <div class="timeline">
+        <!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:02 AM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">[Workday start]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:12 AM</span>
+        <span class="duration">(9 min)</span>
+    </div>
+    <div class="activity">Check emails</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:21 AM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">Team meeting</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:31 AM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">Read industry news</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">09:41 AM</span>
+        <span class="duration">(6 min)</span>
+    </div>
+    <div class="activity">Study AI</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 254px;">
+    <div class="time">
+        <span class="time-value">09:47 AM</span>
+        <span class="duration">(127 min)</span>
+    </div>
+    <div class="activity">Plan project tasks</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 62px;">
+    <div class="time">
+        <span class="time-value">11:54 AM</span>
+        <span class="duration">(31 min)</span>
+    </div>
+    <div class="activity">[Lunch Break]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 120px;">
+    <div class="time">
+        <span class="time-value">12:25 PM</span>
+        <span class="duration">(60 min)</span>
+    </div>
+    <div class="activity">[Resume working]</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:25 PM</span>
+        <span class="duration">(10 min)</span>
+    </div>
+    <div class="activity">Check client demands</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:35 PM</span>
+        <span class="duration">(13 min)</span>
+    </div>
+    <div class="activity">Review pull requests</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:48 PM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Test software</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 50px;">
+    <div class="time">
+        <span class="time-value">01:56 PM</span>
+        <span class="duration">(8 min)</span>
+    </div>
+    <div class="activity">Write report</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event " style="height: 238px;">
+    <div class="time">
+        <span class="time-value">02:04 PM</span>
+        <span class="duration">(119 min)</span>
+    </div>
+    <div class="activity">Update project status</div>
+</div><!-- # functions/mycalendar/templates/event.html -->
+<div class="event special-event" style="height: 234px;">
+    <div class="time">
+        <span class="time-value">04:03 PM</span>
+        <span class="duration">(117 min)</span>
+    </div>
+    <div class="activity">[Workday end]</div>
+</div>
+    </div>
+</div>
+        </div>
+    </div>
+</body>
+</html>
